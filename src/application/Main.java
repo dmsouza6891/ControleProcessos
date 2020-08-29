@@ -1,9 +1,14 @@
 package application;
 	
+import java.util.Date;
+
 import javafx.application.Application;
-import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import model.Processo;
+import model.dao.DaoFactory;
+import model.dao.ProcessoDao;
 
 
 public class Main extends Application {
@@ -21,6 +26,13 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
-		launch(args);
+		//launch(args);
+		Processo teste = new Processo(1, 200, 2020, "Alteração de Conta", new Date(), "Teste 4");
+		System.out.println(teste);
+		
+		ProcessoDao processo = DaoFactory.createProcessoDao();
+		processo.insert(teste);
+		teste = processo.findById(232020);
+		System.out.println(teste);
 	}
 }
