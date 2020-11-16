@@ -1,38 +1,50 @@
 package application;
 	
+import java.io.IOException;
 import java.util.Date;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import model.Processo;
 import model.dao.DaoFactory;
 import model.dao.ProcessoDao;
+import model.entities.Processo;
 
 
 public class Main extends Application {
+	
+	private static Scene mainScene;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml"));
+			Pane mainPane = loader.load();
+			
+			mainScene = new Scene(mainPane);
+			primaryStage.setScene(mainScene);
+			primaryStage.setTitle("Controle de Processos");
 			primaryStage.show();
-		} catch(Exception e) {
+		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}	
+	}
+	
+	public static Scene getMainScene() {
+		return mainScene;
 	}
 	
 	public static void main(String[] args) {
-		//launch(args);
+		launch(args);
 		Processo teste = new Processo(1, 200, 2020, "Alteração de Conta", new Date(), "Teste 4");
 		System.out.println(teste);
 		
-		ProcessoDao processo = DaoFactory.createProcessoDao();
-		processo.insert(teste);
-		teste = processo.findById(232020);
+		//ProcessoDao processo = DaoFactory.createProcessoDao();
+		//processo.insert(teste);
+		//teste = processo.findById(232020);
 		System.out.println(teste);
 	}
 }

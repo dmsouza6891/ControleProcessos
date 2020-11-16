@@ -1,7 +1,8 @@
 package model.dao;
 
 import java.util.List;
-import model.Processo;
+
+import model.entities.Processo;
 
 public interface ProcessoDao {
 	

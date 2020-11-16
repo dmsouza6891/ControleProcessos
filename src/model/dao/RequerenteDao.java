@@ -1,14 +1,15 @@
 package model.dao;
 
 import java.util.List;
-import model.Processo;
+
+import model.entities.Requerente;
 
 public interface RequerenteDao {
 	
-	void insert(Processo obj);
-	void update(Processo obj);
+	void insert(Requerente obj);
+	void update(Requerente obj);
 	void deleteById(Integer id);
-	Processo findById(Integer id);
-	List<Processo> findAll();
+	Requerente findById(Integer id);
+	List<Requerente> findAll();
 
 }

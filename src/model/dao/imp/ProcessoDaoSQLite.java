@@ -9,8 +9,8 @@ import java.util.List;
 
 import db.DB;
 import db.DBException;
-import model.Processo;
 import model.dao.ProcessoDao;
+import model.entities.Processo;
 
 public class ProcessoDaoSQLite implements ProcessoDao {
 	
@@ -31,7 +31,7 @@ public class ProcessoDaoSQLite implements ProcessoDao {
 					+ "(?, ?, ?, ?, ?, ? ) ",
 					Statement.RETURN_GENERATED_KEYS);
 			
-			st.setInt(1, obj.makeId());
+			st.setInt(1, obj.getId());
 			st.setInt(2, obj.getNumero());
 			st.setInt(3, obj.getAno());
 			st.setString(4,  obj.getAssunto());

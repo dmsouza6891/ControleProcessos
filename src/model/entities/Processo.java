@@ -1,4 +1,4 @@
-package model;
+package model.entities;
 
 import java.util.Date;
 
@@ -12,7 +12,6 @@ public class Processo {
 	private String observacao;
 	
 	public Processo() {
-		
 	}
 	
 	public Processo(int id, int numero, int ano, String assunto, Date dataSolicitacao, String observacao) {
@@ -22,13 +21,6 @@ public class Processo {
 		this.assunto = assunto;
 		this.dataSolicitacao = dataSolicitacao;
 		this.observacao = observacao;
-	}
-	
-	public int makeId() {
-		String numero = String.format("%d", this.numero);
-		String ano = String.format("%d", this.ano);
-		String id = numero.concat(ano);
-		return Integer.parseInt(id);
 	}
 	
 	public int getId() {

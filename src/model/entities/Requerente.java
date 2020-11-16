@@ -1,21 +1,16 @@
-package model;
+package model.entities;
 
 public class Requerente {
 	
 	private int id;
-	private int matricula;
 	private String nome;
-	private String cpf;
 	
 	public Requerente() {
-		
 	}
 	
 	public Requerente(int id, int matricula, String nome, String cpf) {
 		this.id = id;
-		this.matricula = matricula;
 		this.nome = nome;
-		this.cpf = cpf;
 	}
 
 	public int getId() {
@@ -26,14 +21,6 @@ public class Requerente {
 		this.id = id;
 	}
 
-	public int getMatricula() {
-		return matricula;
-	}
-
-	public void setMatricula(int matricula) {
-		this.matricula = matricula;
-	}
-
 	public String getNome() {
 		return nome;
 	}
@@ -42,17 +29,9 @@ public class Requerente {
 		this.nome = nome;
 	}
 
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
 	@Override
 	public String toString() {
-		return String.format("Id: %d Matricula: %d Nome: %s Cpf: %s", this.id, this.matricula, this.nome, this.cpf);
+		return String.format("Id: %d Nome: %s", this.id, this.nome);
 	}
 	
-
 }//end of class

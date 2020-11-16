@@ -9,10 +9,11 @@ import java.util.List;
 
 import db.DB;
 import db.DBException;
-import model.Processo;
-import model.dao.ProcessoDao;
+import model.dao.RequerenteDao;
+import model.entities.Processo;
+import model.entities.Requerente;
 
-public class RequerenteDaoSQLite implements ProcessoDao {
+public class RequerenteDaoSQLite implements RequerenteDao {
 	
 	private Connection conn;
 	
@@ -21,22 +22,18 @@ public class RequerenteDaoSQLite implements ProcessoDao {
 	}
 
 	@Override
-	public void insert(Processo obj) {
+	public void insert(Requerente obj) {
 		PreparedStatement st = null;
 		try {
 			st = conn.prepareStatement(
-					"INSERT INTO processos"
-					+ "(id, numero, ano, assunto, data_solicitacao, observacao)"
+					"INSERT INTO requerentes"
+					+ "(id, nome)"
 					+ "VALUES "
-					+ "(?, ?, ?, ?, ?, ? ) ",
+					+ "(?, ?) ",
 					Statement.RETURN_GENERATED_KEYS);
 			
-			st.setInt(1, obj.makeId());
-			st.setInt(2, obj.getNumero());
-			st.setInt(3, obj.getAno());
-			st.setString(4,  obj.getAssunto());
-			st.setDate(5, new java.sql.Date(obj.getDataSolicitacao().getTime()));
-			st.setString(6, obj.getObservacao());
+			st.setInt(1, obj.getId());
+			st.setString(3, obj.getNome());
 			
 			st.execute();
 		}
@@ -51,7 +48,7 @@ public class RequerenteDaoSQLite implements ProcessoDao {
 	}//end insert()
 
 	@Override
-	public void update(Processo obj) {
+	public void update(Requerente obj) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -63,7 +60,7 @@ public class RequerenteDaoSQLite implements ProcessoDao {
 	}
 
 	@Override
-	public Processo findById(Integer id) {
+	public Requerente findById(Integer id) {
 		
 		PreparedStatement st = null;
 		ResultSet rs = null;
@@ -83,7 +80,7 @@ public class RequerenteDaoSQLite implements ProcessoDao {
 				processo.setAssunto(rs.getString("assunto"));
 				processo.setDataSolicitacao(new java.util.Date(rs.getTimestamp("data_solicitacao").getTime()));
 				processo.setObservacao(rs.getString("observacao"));
-				return processo;
+				return null;
 			}
 			return null;
 		}
@@ -97,7 +94,7 @@ public class RequerenteDaoSQLite implements ProcessoDao {
 	}//end findById()
 
 	@Override
-	public List<Processo> findAll() {
+	public List<Requerente> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
