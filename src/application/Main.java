@@ -39,12 +39,6 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
-		Processo teste = new Processo(1, 200, 2020, "Alteração de Conta", new Date(), "Teste 4");
-		System.out.println(teste);
-		
-		ProcessoDao processoDao = DaoFactory.createProcessoDao();
-		processoDao.insert(teste);
-		//teste = processo.findById(232020);
-		System.out.println(teste);
+	
 	}
 }

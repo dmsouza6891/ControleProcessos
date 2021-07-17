@@ -62,6 +62,12 @@ public class Processo {
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
+	public Requerente getRequerente() {
+		return requerente;
+	}
+	public void setRequerente(Requerente requerente) {
+		this.requerente = requerente;
+	}
 	@Override
 	public String toString() {
 		return String.format("Número: %d/%d Assunto: %s Data: %s", this.numero, this.ano, this.assunto, this.dataSolicitacao.toString());

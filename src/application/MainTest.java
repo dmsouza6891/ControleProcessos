@@ -13,28 +13,19 @@ import model.entities.Requerente;
 public class MainTest {
 	
 	public static void main(String args[]) {
-		
-		SimpleDateFormat dataFormato = new SimpleDateFormat("yyyy-MM-dd");
-		String novaData;
-		
-		novaData = dataFormato.format(new Date());
+
 		ProcessoDao processoDao = DaoFactory.createProcessoDao();
 		
-		try {
-			Processo processoUm = new Processo(1, 100, 2021, "Aposentadoria",dataFormato.parse("2021-05-31"), "Invalidez");
-			//processoDao.insert(processoUm);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Processo processoDois = new Processo(3, 101, 2021, "Abono", new Date(), "Permanencia");
-		//processoDao.insert(processoDois);
 		Requerente requerenteUm = new Requerente(1,"11122233344","fulanodetal");
 		Requerente requerenteDois = new Requerente(2, "22233344455", "siclanodetal");
-			
+		
+		
+		Processo processoUm = new Processo(1, 100, 2021, "Aposentadoria",new Date(), "Invalidez", requerenteUm);
+		Processo processoDois = new Processo(3, 101, 2021, "Abono", new Date(), "Permanencia", requerenteDois);
+		//processoDao.insert(processoUm);
+		//processoDao.insert(processoDois);
 		
 		RequerenteDao requerenteDao = DaoFactory.createRequerenteDao();
-		
 		
 		//processoDao.insert(processoDois);
 		requerenteDao.insert(requerenteUm);
