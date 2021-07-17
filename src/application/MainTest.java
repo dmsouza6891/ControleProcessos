@@ -5,38 +5,44 @@ import java.util.Date;
 import model.dao.DaoFactory;
 import model.dao.ProcessoDao;
 import model.dao.RequerenteDao;
-import model.entities.Processo;
+import model.entities.Colaborador;
 import model.entities.Requerente;
+import model.entities.Requisicao;
+import model.entities.TipoRequisicao;
 
 public class MainTest {
 	
 	public static void main(String args[]) {
 
-		ProcessoDao processoDao = DaoFactory.createProcessoDao();
+		//ProcessoDao processoDao = DaoFactory.createProcessoDao();
+		//RequerenteDao requerenteDao = DaoFactory.createRequerenteDao();
 		
-		Requerente requerenteUm = new Requerente(1,"11122233344","fulanodetal");
-		Requerente requerenteDois = new Requerente(2, "22233344455", "siclanodetal");
+		Requerente requerente1 = new Requerente(1,"11122233344","Corregedoria");
+		Requerente requerente2 = new Requerente(2, "22233344455", "Raphaela Rodrigues");
 		
+		Colaborador colaborador1 = new Colaborador(1, 12345, "Fabio");
+		Colaborador colaborador2 = new Colaborador(2, 12346, "Alexandre");
+	
+		Requisicao processo1 = new Requisicao(1, 100, 2021, "Aposentadoria",new Date(), "sumula", requerente1, TipoRequisicao.PROCESSO);
+		Requisicao processo2 = new Requisicao(2, 101, 2021, "Abono", new Date(), "sumula", requerente2, TipoRequisicao.MEMORANDO);
 		
-		Processo processoUm = new Processo(1, 100, 2021, "Aposentadoria",new Date(), "Invalidez", requerenteUm);
-		Processo processoDois = new Processo(3, 101, 2021, "Abono", new Date(), "Permanencia", requerenteDois);
-		//processoDao.insert(processoUm);
-		//processoDao.insert(processoDois);
+		System.out.println(colaborador1);
+		System.out.println(colaborador2);
+		System.out.println(processo1);
+		System.out.println(processo2);
+		System.out.println(requerente1);
+		System.out.println(requerente2);
 		
-		System.out.println(processoUm);
-		System.out.println(processoDois);
+		//processoDao.insert(processo1);
+		//processoDao.insert(processo2);
+		//requerenteDao.insert(requerenteUm);
+		//requerenteDao.insert(requerenteDois);
 		
-		RequerenteDao requerenteDao = DaoFactory.createRequerenteDao();
-		
-		//processoDao.insert(processoDois);
-		requerenteDao.insert(requerenteUm);
-		requerenteDao.insert(requerenteDois);
-		
-		Processo processoBusca = processoDao.findById(1);
-		System.out.println(processoBusca);
-		processoBusca = processoDao.findById(3);
-		System.out.println(processoBusca);
-		processoDao.deleteById(3);
+		//Requisicao processoBusca = processoDao.findById(1);
+		//System.out.println(processoBusca);
+		//processoBusca = processoDao.findById(3);
+		//System.out.println(processoBusca);
+		//processoDao.deleteById(3);
 		
 	}
 

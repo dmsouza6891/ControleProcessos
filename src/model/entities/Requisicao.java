@@ -2,28 +2,30 @@ package model.entities;
 
 import java.util.Date;
 
-public class Processo {
+public class Requisicao {
 	
 	private int id;
 	private int numero;
 	private int ano;
-	private String assunto;
+	private String assunto; 
 	private Date dataSolicitacao;
-	private String observacao;
+	private String sumula;
+	private TipoRequisicao tipoRequisicao; //forma da requisição (Memorando, Ofício, Processo)
 	
 	private Requerente requerente;
 	
-	public Processo() {
+	public Requisicao() {
 	}
 	
-	public Processo(int id, int numero, int ano, String assunto, Date dataSolicitacao, String observacao, Requerente requerente) {
+	public Requisicao(int id, int numero, int ano, String assunto, Date dataSolicitacao, String sumula, Requerente requerente, TipoRequisicao tipoRequisicao) {
 		this.id = id;
 		this.numero = numero;
 		this.ano = ano;
 		this.assunto = assunto;
 		this.dataSolicitacao = dataSolicitacao;
-		this.observacao = observacao;
+		this.sumula = sumula;
 		this.requerente = requerente;
+		this.tipoRequisicao = tipoRequisicao;
 	}
 	
 	public int getId() {
@@ -56,21 +58,29 @@ public class Processo {
 	public void setDataSolicitacao(Date dataSolicitacao) {
 		this.dataSolicitacao = dataSolicitacao;
 	}
-	public String getObservacao() {
-		return observacao;
-	}
-	public void setObservacao(String observacao) {
-		this.observacao = observacao;
-	}
 	public Requerente getRequerente() {
 		return requerente;
 	}
 	public void setRequerente(Requerente requerente) {
 		this.requerente = requerente;
 	}
+	public String getSumula() {
+		return sumula;
+	}
+	public void setSumula(String sumula) {
+		this.sumula = sumula;
+	}
+	public TipoRequisicao getTipoRequisicao() {
+		return tipoRequisicao;
+	}
+	public void setTipoRequisicao(TipoRequisicao tipoRequisicao) {
+		this.tipoRequisicao = tipoRequisicao;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("Número: %d/%d Assunto: %s Data: %s", this.numero, this.ano, this.assunto, this.dataSolicitacao.toString());
+		return String.format("Número: %d/%d Assunto: %s Data: %s Sumula: %s Tipo: %s Requerente: %s", this.numero, this.ano, this.assunto, 
+				              this.dataSolicitacao.toString(), this.sumula, this.tipoRequisicao, this.requerente.getNome());
 	}
 	
 }
