@@ -5,12 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-<<<<<<< HEAD
 import java.util.Date;
-=======
->>>>>>> 641a3999fa877620400f58a082eb8b772184f36c
 import java.util.List;
-
 import db.DB;
 import db.DBException;
 import model.dao.ProcessoDao;
@@ -18,7 +14,6 @@ import model.entities.Processo;
 
 public class ProcessoDaoSQLite implements ProcessoDao {
 	
-<<<<<<< HEAD
 	private Connection conexaoDatabase;
 	
 	public ProcessoDaoSQLite(Connection conexaoDatabase) {
@@ -26,50 +21,25 @@ public class ProcessoDaoSQLite implements ProcessoDao {
 	}
 
 	@Override
-	public void insert(Processo obj) { //insere um registro
-		PreparedStatement st = null; //objeto para gerar query sql
-		try {
-			st = conexaoDatabase.prepareStatement(
-					"INSERT INTO processos"
-					+ "(id, numero, ano, assunto, data_solicitacao, observacao, idRequerente)"
-					+ "VALUES "
-					+ "(?, ?, ?, ?, ?, ?, ? ) ",
-					Statement.RETURN_GENERATED_KEYS);
-			
-			st.setInt(1, obj.getId());           //referencia dados para a query sql
-=======
-	private Connection conn;
-	
-	public ProcessoDaoSQLite(Connection conn) {
-		this.conn = conn;
-	}
-
-	@Override
 	public void insert(Processo obj) {
 		PreparedStatement st = null;
 		try {
-			st = conn.prepareStatement(
+			st = conexaoDatabase.prepareStatement(
 					"INSERT INTO processos"
 					+ "(id, numero, ano, assunto, data_solicitacao, observacao)"
 					+ "VALUES "
-					+ "(?, ?, ?, ?, ?, ? ) ",
+					+ "(?, ?, ?, ?, ?, ?, ?) ",
 					Statement.RETURN_GENERATED_KEYS);
 			
 			st.setInt(1, obj.getId());
->>>>>>> 641a3999fa877620400f58a082eb8b772184f36c
 			st.setInt(2, obj.getNumero());
 			st.setInt(3, obj.getAno());
 			st.setString(4,  obj.getAssunto());
 			st.setDate(5, new java.sql.Date(obj.getDataSolicitacao().getTime()));
 			st.setString(6, obj.getObservacao());
-<<<<<<< HEAD
-			st.setInt(7, obj.);
+			st.setObject(7, obj.getRequerente());
 			
 			st.execute(); //executa a query
-=======
-			
-			st.execute();
->>>>>>> 641a3999fa877620400f58a082eb8b772184f36c
 		}
 		catch (SQLException e) {
 			try {
@@ -88,7 +58,6 @@ public class ProcessoDaoSQLite implements ProcessoDao {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public void deleteById(Integer id) { //deleta um registro dado um id
 		
 		PreparedStatement st = null; //objeto que gera sql
@@ -108,12 +77,6 @@ public class ProcessoDaoSQLite implements ProcessoDao {
 			}
 		}	
 	}//end deleteById()
-=======
-	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
-		
-	}
->>>>>>> 641a3999fa877620400f58a082eb8b772184f36c
 
 	@Override
 	public Processo findById(Integer id) {
@@ -122,11 +85,7 @@ public class ProcessoDaoSQLite implements ProcessoDao {
 		ResultSet rs = null;
 		
 		try {
-<<<<<<< HEAD
 			st = conexaoDatabase.prepareStatement(
-=======
-			st = conn.prepareStatement(
->>>>>>> 641a3999fa877620400f58a082eb8b772184f36c
 					"SELECT * " +
 					"FROM processos " +
 				    "WHERE id = ?");
@@ -138,11 +97,9 @@ public class ProcessoDaoSQLite implements ProcessoDao {
 				processo.setNumero(rs.getInt("numero"));
 				processo.setAno(rs.getInt("ano"));
 				processo.setAssunto(rs.getString("assunto"));
-<<<<<<< HEAD
 				Date data = rs.getDate("data_solicitacao");
 				processo.setDataSolicitacao(data);
-=======
->>>>>>> 641a3999fa877620400f58a082eb8b772184f36c
+
 				processo.setDataSolicitacao(new java.util.Date(rs.getTimestamp("data_solicitacao").getTime()));
 				processo.setObservacao(rs.getString("observacao"));
 				return processo;
@@ -163,6 +120,5 @@ public class ProcessoDaoSQLite implements ProcessoDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
 }

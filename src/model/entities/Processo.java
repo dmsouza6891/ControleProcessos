@@ -11,29 +11,19 @@ public class Processo {
 	private Date dataSolicitacao;
 	private String observacao;
 	
-<<<<<<< HEAD
 	private Requerente requerente;
 	
 	public Processo() {
 	}
 	
 	public Processo(int id, int numero, int ano, String assunto, Date dataSolicitacao, String observacao, Requerente requerente) {
-=======
-	public Processo() {
-	}
-	
-	public Processo(int id, int numero, int ano, String assunto, Date dataSolicitacao, String observacao) {
->>>>>>> 641a3999fa877620400f58a082eb8b772184f36c
 		this.id = id;
 		this.numero = numero;
 		this.ano = ano;
 		this.assunto = assunto;
 		this.dataSolicitacao = dataSolicitacao;
 		this.observacao = observacao;
-<<<<<<< HEAD
 		this.requerente = requerente;
-=======
->>>>>>> 641a3999fa877620400f58a082eb8b772184f36c
 	}
 	
 	public int getId() {
@@ -72,15 +62,12 @@ public class Processo {
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
-<<<<<<< HEAD
 	public Requerente getRequerente() {
 		return requerente;
 	}
 	public void setRequerente(Requerente requerente) {
 		this.requerente = requerente;
 	}
-=======
->>>>>>> 641a3999fa877620400f58a082eb8b772184f36c
 	@Override
 	public String toString() {
 		return String.format("Número: %d/%d Assunto: %s Data: %s", this.numero, this.ano, this.assunto, this.dataSolicitacao.toString());

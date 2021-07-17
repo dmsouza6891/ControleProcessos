@@ -12,12 +12,8 @@ import java.sql.Statement;
 public class DB {
 	
 	static final String JDBC_Driver = "org.sqlite.JDBC";
-<<<<<<< HEAD
 	static final String DATABASE_URL = "jdbc:sqlite:C:/dms/databases/processcontrol/dbcontrolprocess";
-=======
-	static final String DATABASE_URL = "jdbc:sqlite:D:/Desenvolvimento/Bancos/conprocessos.db";
->>>>>>> 641a3999fa877620400f58a082eb8b772184f36c
-	
+
 	private static Connection conexao=null; //objeto responsável pela conexão
 	
 	//realiza a conexão com o banco de dados
