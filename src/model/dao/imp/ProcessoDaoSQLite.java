@@ -27,9 +27,9 @@ public class ProcessoDaoSQLite implements ProcessoDao {
 		try {
 			st = conexaoDatabase.prepareStatement(
 					"INSERT INTO processos"
-					+ "(id, numero, ano, assunto, data_solicitacao, observacao)"
+					+ "(id, numero, ano, assunto, data_solicitacao, observacao, idRequerente)"
 					+ "VALUES "
-					+ "(?, ?, ?, ?, ?, ? ) ",
+					+ "(?, ?, ?, ?, ?, ?, ? ) ",
 					Statement.RETURN_GENERATED_KEYS);
 			
 			st.setInt(1, obj.getId());           //referencia dados para a query sql
@@ -38,6 +38,7 @@ public class ProcessoDaoSQLite implements ProcessoDao {
 			st.setString(4,  obj.getAssunto());
 			st.setDate(5, new java.sql.Date(obj.getDataSolicitacao().getTime()));
 			st.setString(6, obj.getObservacao());
+			st.setInt(7, obj.);
 			
 			st.execute(); //executa a query
 		}
