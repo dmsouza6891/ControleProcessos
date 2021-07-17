@@ -2,7 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/dms/SQLite/sqlitejdbc.jar"/>
+=======
+	<classpathentry kind="lib" path="D:/Desenvolvimento/java libs/jdbc-connector/sqlitejdbc.jar"/>
+>>>>>>> 641a3999fa877620400f58a082eb8b772184f36c
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
