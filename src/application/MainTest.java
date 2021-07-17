@@ -1,7 +1,5 @@
 package application;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import model.dao.DaoFactory;
@@ -24,6 +22,9 @@ public class MainTest {
 		Processo processoDois = new Processo(3, 101, 2021, "Abono", new Date(), "Permanencia", requerenteDois);
 		//processoDao.insert(processoUm);
 		//processoDao.insert(processoDois);
+		
+		System.out.println(processoUm);
+		System.out.println(processoDois);
 		
 		RequerenteDao requerenteDao = DaoFactory.createRequerenteDao();
 		

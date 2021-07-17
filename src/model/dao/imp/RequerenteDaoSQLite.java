@@ -10,7 +10,6 @@ import java.util.List;
 import db.DB;
 import db.DBException;
 import model.dao.RequerenteDao;
-import model.entities.Processo;
 import model.entities.Requerente;
 
 public class RequerenteDaoSQLite implements RequerenteDao {
