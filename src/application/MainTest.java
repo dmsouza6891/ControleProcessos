@@ -2,9 +2,7 @@ package application;
 
 import java.util.Date;
 
-import model.dao.DaoFactory;
-import model.dao.ProcessoDao;
-import model.dao.RequerenteDao;
+import model.entities.Atribuicao;
 import model.entities.Colaborador;
 import model.entities.Requerente;
 import model.entities.Requisicao;
@@ -32,6 +30,9 @@ public class MainTest {
 		System.out.println(processo2);
 		System.out.println(requerente1);
 		System.out.println(requerente2);
+		
+		Atribuicao atribuicao1 = new Atribuicao(1, colaborador1, processo1, new Date(), new Date());
+		System.out.println(atribuicao1);
 		
 		//processoDao.insert(processo1);
 		//processoDao.insert(processo2);

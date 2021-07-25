@@ -10,6 +10,14 @@ public class Atribuicao {
 	private Date dataDeAtribuicao;
 	private Date dataParaEntrega;
 	
+	public Atribuicao(int id, Colaborador colaborador, Requisicao requisicao, Date dataDeAtribuicao, Date dataParaEntrega) {
+		this.id = id;
+		this.colaborador = colaborador;
+		this.requisicao = requisicao;
+		this.dataDeAtribuicao = dataDeAtribuicao;
+		this.dataParaEntrega = dataParaEntrega;
+	}
+	
 	public int getId() {
 		return id;
 	}

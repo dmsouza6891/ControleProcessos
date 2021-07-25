@@ -9,8 +9,9 @@ public class Requisicao {
 	private int ano;
 	private String assunto; 
 	private Date dataSolicitacao;
-	private String sumula;
+	private String sumula; //resumo do que foi requisitado
 	private TipoRequisicao tipoRequisicao; //forma da requisição (Memorando, Ofício, Processo)
+	private Date prazo; //data em que a solicitação deverá ser atendida
 	
 	private Requerente requerente;
 	
@@ -77,10 +78,18 @@ public class Requisicao {
 		this.tipoRequisicao = tipoRequisicao;
 	}
 
+	public Date getPrazo() {
+		return prazo;
+	}
+
+	public void setPrazo(Date prazo) {
+		this.prazo = prazo;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("Número: %d/%d Assunto: %s Data: %s Sumula: %s Tipo: %s Requerente: %s", this.numero, this.ano, this.assunto, 
-				              this.dataSolicitacao.toString(), this.sumula, this.tipoRequisicao, this.requerente.getNome());
+		return String.format("Número: %d/%d Assunto: %s Data: %s Sumula: %s Tipo: %s Requerente: %s Prazo: %s", this.numero, this.ano, this.assunto, 
+				              this.dataSolicitacao.toString(), this.sumula, this.tipoRequisicao, this.requerente.getNome(), this.prazo.toString());
 	}
 	
 }
